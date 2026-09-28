@@ -1,9 +1,18 @@
-const express = require('express');
+const express = require("express");
+const path = require("node:path");
+const { messages } = require("./sampleMessage");
+const messageRouter = require("./routes/messageRouter");
 const app = express();
 
-app.get('/', (req, res) => {
-  res.send('This is index page');
+app.use(express.urlencoded({ extended: true }));
+app.use("/new", messageRouter);
+
+app.get("/", (req, res) => {
+  res.render("index", { title: "Mini MessageBoard", messages: messages });
 });
+
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
 
 const PORT = 3000;
 
