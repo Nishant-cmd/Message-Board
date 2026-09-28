@@ -7,6 +7,11 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use("/new", messageRouter);
 
+app.get("/message/:messageId", (req, res) => {
+  const { messageId } = req.params;
+  res.render("message", { message: messages[Number(messageId)] });
+});
+
 app.get("/", (req, res) => {
   res.render("index", { title: "Mini MessageBoard", messages: messages });
 });

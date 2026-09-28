@@ -12,12 +12,16 @@
         </form>  
     </div>
 <div>
-<% messages.map((message)=>{ %>
+<% messages.map((message,index)=>{ %>
 <div>
     <p><%=message.user %></p>
     <p> <%=message.added %></p>
 </div>
 <p> <%=message.text %></p>
+
+   <form  method="GET" action="/message/<%=index %>"    >
+             <button>Open</button>
+        </form>  
 <% }) %>
 </div>
 </body>
