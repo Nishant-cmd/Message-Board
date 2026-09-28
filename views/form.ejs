@@ -1,18 +1,51 @@
-<html>
-  <head>
-    <title>New Message</title>
-  </head>
-  <body>
-    <p>JOIN THE CONVERSATION</p>
-    <h1>New Message</h1>
-    <p>Share somehting with everyone on the Board</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Message</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="navbar__inner">
+      <a href="/" class="navbar__brand">Message Board</a>
+    </div>
+  </nav>
+
+  <main class="page-wrapper">
+
+    <header class="page-header">
+      <p class="page-header__eyebrow">Join the conversation</p>
+      <h1 class="page-header__title">New Message</h1>
+      <p class="page-header__subtitle">Share something with everyone on the board.</p>
+    </header>
 
     <form method="POST" action="/new">
-      <label for="name">Name</label>
-      <input name="messageUser" type="text" id="name" />
-      <label for="message">Message</label>
-      <textarea name="messageText" id="message"></textarea>
-      <button type="submit">Post message</button>
+
+      <div class="form-group">
+        <label class="form-label" for="name">Name</label>
+        <input class="form-input" name="messageUser" type="text" id="name" placeholder="Your name" autocomplete="off" required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="message">Message</label>
+        <textarea class="form-textarea" name="messageText" id="message" placeholder="What's on your mind?" required></textarea>
+      </div>
+
+      <div class="form-actions">
+        <a href="/" class="btn btn--outline">Cancel</a>
+        <button class="btn btn--primary" type="submit">Post Message</button>
+      </div>
+
     </form>
-  </body>
+
+  </main>
+
+  <footer class="site-footer">
+    &copy; Message Board
+  </footer>
+
+</body>
 </html>

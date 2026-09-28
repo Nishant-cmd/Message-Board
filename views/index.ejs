@@ -1,28 +1,59 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Message Board</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Message Board</title>
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-    <div>
-        <p> A PLACE TO SHARE</p>
-        <h1>Message Board</h1>
-        <p>Small thoughts,shared openly</p>
-        <form method="GET" action="/new"    >
-             <button>Write a new Message</button>
-        </form>  
-    </div>
-<div>
-<% messages.map((message,index)=>{ %>
-<div>
-    <p><%=message.user %></p>
-    <p> <%=message.added %></p>
-</div>
-<p> <%=message.text %></p>
 
-   <form  method="GET" action="/message/<%=index %>"    >
-             <button>Open</button>
-        </form>  
-<% }) %>
-</div>
+  <nav class="navbar">
+    <div class="navbar__inner">
+      <a href="/" class="navbar__brand">Message Board</a>
+    </div>
+  </nav>
+
+  <main class="page-wrapper">
+
+    <header class="page-header">
+      <p class="page-header__eyebrow">A place to share</p>
+      <h1 class="page-header__title">Message Board</h1>
+      <p class="page-header__subtitle">Small thoughts, shared openly.</p>
+    </header>
+
+    <div class="section-actions">
+      <form method="GET" action="/new">
+        <button class="btn btn--primary" type="submit">+ Write a Message</button>
+      </form>
+    </div>
+
+    <div class="messages-list">
+      <% if (messages.length === 0) { %>
+        <div class="empty-state">No messages yet. Be the first to share something.</div>
+      <% } %>
+
+      <% messages.map((message, index) => { %>
+        <div class="message-card">
+          <div class="message-card__meta">
+            <span class="message-card__author"><%= message.user %></span>
+            <span class="message-card__date"><%= message.added %></span>
+          </div>
+          <p class="message-card__text"><%= message.text %></p>
+          <div class="message-card__footer">
+            <form method="GET" action="/message/<%= index %>">
+              <button class="btn btn--outline btn--sm" type="submit">Read →</button>
+            </form>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    &copy; Message Board
+  </footer>
+
 </body>
 </html>

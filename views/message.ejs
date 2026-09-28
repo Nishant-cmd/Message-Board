@@ -1,16 +1,43 @@
-<html>
-  <head>
-    <title>Message Info</title>
-  </head>
-  <body>
-    <div>
-      <h3>Message Details</h3>
-      <p><%=message.user %> created a post</p>
-      <p><%=message.text %></p>
-      <p>Created: <%=message.added %></p>
-      <form method="GET" action="/">
-        <button type="submit">Back to messages</button>
-      </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Message Details</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="navbar__inner">
+      <a href="/" class="navbar__brand">Message Board</a>
     </div>
-  </body>
+  </nav>
+
+  <main class="page-wrapper">
+
+    <header class="page-header">
+      <p class="page-header__eyebrow">Message Details</p>
+      <h1 class="page-header__title"><%= message.user %></h1>
+    </header>
+
+    <div class="detail-card">
+      <p class="detail-card__author-line">
+        <strong><%= message.user %></strong> posted a message
+      </p>
+      <p class="detail-card__body"><%= message.text %></p>
+      <p class="detail-card__timestamp">Posted: <%= message.added %></p>
+    </div>
+
+    <form method="GET" action="/">
+      <button class="btn btn--outline" type="submit">← Back to Messages</button>
+    </form>
+
+  </main>
+
+  <footer class="site-footer">
+    &copy; Message Board
+  </footer>
+
+</body>
 </html>
