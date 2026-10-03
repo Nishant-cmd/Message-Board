@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS messages (
   message text
 )
 
-INSERT INTO messages (username,time,message) 
+INSERT INTO messages (username,created_at,messagetext) 
 VALUES
   ('Amando', to_timestamp(${Date.now()}/1000),'Hi there!'),
   ('Charles',to_timestamp(${Date.now()}/1000),'Hi World!'),
