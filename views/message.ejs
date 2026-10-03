@@ -1,43 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Message Details</title>
-  <link rel="stylesheet" href="/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Message Details</title>
+    <link rel="stylesheet" href="/style.css" />
 </head>
+
 <body>
 
-  <nav class="navbar">
-    <div class="navbar__inner">
-      <a href="/" class="navbar__brand">Message Board</a>
-    </div>
-  </nav>
+    <nav class="navbar">
+        <div class="navbar__inner">
+            <a href="/" class="navbar__brand">Message Board</a>
+        </div>
+    </nav>
 
-  <main class="page-wrapper">
+    <main class="page-wrapper">
 
-    <header class="page-header">
-      <p class="page-header__eyebrow">Message Details</p>
-      <h1 class="page-header__title"><%= message.user %></h1>
-    </header>
+        <header class="page-header">
+            <p class="page-header__eyebrow">Message Details</p>
+            <h1 class="page-header__title">
+                <%= user.username %>
+            </h1>
+        </header>
 
-    <div class="detail-card">
-      <p class="detail-card__author-line">
-        <strong><%= message.user %></strong> posted a message
-      </p>
-      <p class="detail-card__body"><%= message.text %></p>
-      <p class="detail-card__timestamp">Posted: <%= message.added %></p>
-    </div>
+        <div class="detail-card">
+            <p class="detail-card__author-line">
+                <strong>
+                    <%= user.username %>
+                </strong> posted a message
+            </p>
+            <p class="detail-card__body">
+                <%= user.messagetext %>
+            </p>
+            <p class="detail-card__timestamp">Posted: <%= user.created_at %>
+            </p>
+        </div>
 
-    <form method="GET" action="/">
-      <button class="btn btn--outline" type="submit">← Back to Messages</button>
-    </form>
+        <form method="GET" action="/">
+            <button class="btn btn--outline" type="submit">← Back to Messages</button>
+        </form>
 
-  </main>
+    </main>
 
-  <footer class="site-footer">
-    &copy; Message Board
-  </footer>
+    <footer class="site-footer">
+        &copy; Message Board
+    </footer>
 
 </body>
+
 </html>
