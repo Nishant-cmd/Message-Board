@@ -13,7 +13,13 @@ async function insertUserInput(username, messagetext) {
   ]);
 }
 
+async function getUserByID(id) {
+  const { row } = await pool.query(`SELECT * FROM messages WHERE messages.id= ${id}`);
+  return row;
+}
+
 module.exports = {
   getAllUsers,
   insertUserInput,
+  getUserByID,
 };
