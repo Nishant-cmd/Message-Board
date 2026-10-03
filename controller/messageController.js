@@ -8,7 +8,7 @@ async function getUser(req, res) {
 async function insertUserInput(req, res) {
   const { messageUser, messageText } = req.body;
   await db.insertUserInput(messageUser, messageText);
-  res.render('/');
+  res.redirect('/');
 }
 
 module.exports = {
