@@ -1,7 +1,9 @@
 const pool = require('./pool');
 
 async function getAllUsers() {
-  const { rows } = await pool.query('SELECT * FROM messages');
+  const { rows } = await pool.query(
+    `SELECT messages.username,messages.messagetext,to_char(messages.created_at,'YYYY/MM/DD, HH12:MI:SS AM') AS created_at FROM messages`,
+  );
   return rows;
 }
 
@@ -14,8 +16,11 @@ async function insertUserInput(username, messagetext) {
 }
 
 async function getUserByID(id) {
-  const { row } = await pool.query(`SELECT * FROM messages WHERE messages.id= ${id}`);
-  return row;
+  const { rows } = await pool.query(
+    `SELECT messages.username,messages.messagetext,to_char(messages.created_at,'YYYY/MM/DD, HH12:MI:SS AM') AS created_at FROM messages WHERE messages.id=$1`,
+    [Number(id)],
+  );
+  return rows;
 }
 
 module.exports = {
