@@ -1,10 +1,5 @@
 #! /usr/bin/env node
-
-const path = require('node:path');
 const { Client } = require('pg');
-
-const { loadEnvFile } = require('node:process');
-loadEnvFile(path.join(__dirname, '../.env'));
 
 const SQL = `
 CREATE TABLE IF NOT EXISTS messages (
